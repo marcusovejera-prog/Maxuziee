@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SDIHS with Side Nav</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+
+  /* Sidebar styles */
+  #sidebar {
+    width: 200px;
+    background-color: #333;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
+
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #sidebar li {
+    padding: 10px 20px;
+  }
+
+  #sidebar li:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+
+  /* Main content styles */
+  #content {
+    margin-left: 200px; /* same as sidebar width */
+    padding: 20px;
+    flex: 1;
+    margin-top: 0;
+  }
+
+  /* Header styles */
+  header {
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Footer styles */
+  footer {
+    background-color: #007acc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: calc;(100%-200%)!;
+    margin-left: 200px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Side Navigation -->
+<div id="sidebar">
+  <ul>
+    <li onclick="showPage('home')">School Profile</li>
+    <li onclick="showPage('shs')">SHS</li>
+    <li onclick="showPage('jhs')">JHS</li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<div id="content">
+  <header>
+    <h1>SDIHS</h1>
+    <p>Santo Domingo Integrated High School</p>
+    <p>Barangay Santo Domingo, Santa Rosa City, Laguna</p>
+  </header>
+
+  <div id="page-content">
+    <h2>Welcome SDIHS!</h2>
+    <p>Batang Santo Ilkas na mabait, matalino, at aktibo!</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>marcusovejera@gmail.com/09926143602</p>
+</footer>
+
+<script>
+  function showPage(page) {
+    const pageContent = document.getElementById('page-content');
+    if (page === 'home') {
+      pageContent.innerHTML = `
+        <h2>Welcome SDIHS!</h2>
+        <p>Batang Santo Ilkas na mabait, matalino, at aktibo!</p>
+      `;
+    } else if (page === 'shs') {
+      pageContent.innerHTML = `
+        <h2>Senior High School</h2>
+        <p>Details about Senior High School.</p>
+      `;
+    } else if (page === 'jhs') {
+      pageContent.innerHTML = `
+        <h2>Junior High School</h2>
+        <p>Details about Junior High School.</p>
+      `;
+    }
+  }
+</script>
+
+</body>
+</html>
