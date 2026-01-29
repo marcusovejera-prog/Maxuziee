@@ -1,119 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>SDIHS with Side Nav</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-  }
+    <title>Web Layout</title>
+    <link href="⁦https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Poppins:wght@300;500&display=swap⁩" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
 
-  /* Sidebar styles */
-  #sidebar {
-    width: 200px;
-    background-color: #333;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    box-sizing: border-box;
-  }
+        body {
+            font-family: 'Comic Neue', 
+        }
+        
+        header {
+            background: linear-gradient(135deg, pink, pink, pink);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px #1e90ff;
+        }
 
-  #sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
+        ul.nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background: pink;
+            border-bottom: 2px solid #004aad;
+        }
 
-  #sidebar li {
-    padding: 10px 20px;
-  }
+        ul.nav li a {
+            display: block;
+            color: white;
+            padding: 14px 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-  #sidebar li:hover {
-    background-color: #555;
-    cursor: pointer;
-  }
+        ul.nav li a:hover {
+            background-color: pink;
+            color: #004aad;
+            border-radius: 10px;
+        }
 
-  /* Main content styles */
-  #content {
-    margin-left: 200px; /* same as sidebar width */
-    padding: 20px;
-    flex: 1;
-    margin-top: 0;
-  }
+        .container {
+            display: flex;
+            height: 420px;
+        }
 
-  /* Header styles */
-  header {
-    background-color: #007acc;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
+        .navside {
+            width: 30%;
+            background: rgba(180, 220, 255, 0.7);
+            padding: 20px;
+        }
 
-  /* Footer styles */
-  footer {
-    background-color: #007acc;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: calc;(100%-200%)!;
-    margin-left: 200px;
-  }
-</style>
+        .navside ul {
+             list-style-type: none;
+            padding: 0;
+        }
+
+        .navside ul li a {
+            display: block;
+            padding: 12px;
+            color: #004aad;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 8px;
+            border: 2px solid #6fb7ff;
+        }
+
+        .navside ul li a:hover {
+            background: pink;
+        }
+
+        main#content {
+            flex: 1;
+            padding: 20px;
+            background: pink;
+            margin: 10px;
+            border-radius: 15px;
+            border: 3px solid #66b2ff;
+            overflow-y: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer {
+            background: linear-gradient(135deg, pink, pink);
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Side Navigation -->
-<div id="sidebar">
-  <ul>
-    <li onclick="showPage('home')">School Profile</li>
-    <li onclick="showPage('shs')">SHS</li>
-    <li onclick="showPage('jhs')">JHS</li>
-  </ul>
+<header>
+    <h2>SDIHS</h2>
+    <h3>Santo Domingo Integrated High School</h3>
+</header>
+
+<ul class="nav">
+    <li><a href="E-portfolio.html ">Home</a></li>
+    <li><a href="Outputs-1st grading.html ">First Quarter</a></li>
+    <li><a href="2ndgrading.html">Second Quarter</a></li>
+    <li><a href="https://www.facebook.com/share/19xBxCsvMD/?mibextid=wwXIfr/">About</a></li>
+</ul>
+
+<div class="container">
+    <section class="navside">
+        <ul>
+            <li><a onclick="loadContent('School Profile')">School Profile</a></li>
+            <li><a onclick="loadContent('SHS')">SHS</a></li>
+            <li><a onclick="loadContent('JHS')">JHS</a></li>
+        </ul>
+    </section>
+
+    <main id="content">
+        <h2>SDIHS</h2>
+        <p>Sto. Domingo Integrated High School was founded in 1971. It is located at Barangay Santo Domingo, City of Santa Rosa, Laguna.</p>
+    </main>
 </div>
 
-<!-- Main Content -->
-<div id="content">
-  <header>
-    <h1>SDIHS</h1>
-    <p>Santo Domingo Integrated High School</p>
-    <p>Barangay Santo Domingo, Santa Rosa City, Laguna</p>
-  </header>
-
-  <div id="page-content">
-    <h2>Welcome SDIHS!</h2>
-    <p>Batang Santo Ilkas na mabait, matalino, at aktibo!</p>
-  </div>
-</div>
-
-<!-- Footer -->
 <footer>
-  <p>marcusovejera@gmail.com/09926143602</p>
+    <p>marcusovejera@gmail.com | 09926143602</p>
 </footer>
 
 <script>
-  function showPage(page) {
-    const pageContent = document.getElementById('page-content');
-    if (page === 'home') {
-      pageContent.innerHTML = `
-        <h2>Welcome SDIHS!</h2>
-        <p>Batang Santo Ilkas na mabait, matalino, at aktibo!</p>
-      `;
-    } else if (page === 'shs') {
-      pageContent.innerHTML = `
-        <h2>Senior High School</h2>
-        <p>Details about Senior High School.</p>
-      `;
-    } else if (page === 'jhs') {
-      pageContent.innerHTML = `
-        <h2>Junior High School</h2>
-        <p>Details about Junior High School.</p>
-      `;
+function loadContent(section) {
+    const content = document.getElementById('content');
+
+    if (section === 'School Profile') {
+        content.innerHTML = `
+            <h2>Mission</h2>
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.
+Teachers facilitate learning and constantly nurture every learner; administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen; family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
+            <h2>Vision</h2>
+            <p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation. As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholders.</p>
+            <h2>Core Values</h2>
+            <ul>
+             <li>Maka-Diyos</li>
+             <li>Maka-tao</li>
+             <li>Makakalikasan</li>
+             <li>Makabansa</li>
+           </ul>  
+        `;
     }
-  }
+
+    if (section === 'SHS') {
+        content.innerHTML = `
+            <h2>SHS</h2>
+            <h3>Women</h3>
+            <ul>
+             <li>Ofelia Franco</li>
+             <li>Marineth Pulido</li>
+             <li>Joyce Caranay</li>
+            </ul> 
+            <h3>Men</h3>
+            <ul>
+             <li>Joseph Trajano</li>
+            </ul> 
+        `;
+    }
+
+    if (section === 'JHS') {
+        content.innerHTML = `
+            <h2>LIST OF SECTIONS OF GRADE 10</h2>
+            <h3>Mayon</h3>
+            <h3>halcon</h3> 
+            <h3>Sierra madre</h3>
+            <h3>mayon</h3>
+            <h3>makiling</h3>
+            <h3>pulag</h3>
+           <li><a href="file tu.html">Kanlaon</a></li>
+            </ul>  
+            
+        `;
+    }
+}
 </script>
 
 </body>
