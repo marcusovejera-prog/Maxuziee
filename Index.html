@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Layout</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        header {
+            background-color: pink;
+            padding: 5px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        ul.nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: blue;
+        }
+
+        ul.nav li a {
+            display: block;
+            color: #f1f1f1;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.nav li a:hover {
+            background-color: pink;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            height: 400px;
+        }
+
+        .navside {
+            width: 30%;
+            background: #ccc;
+            padding: 20px;
+        }
+
+        .navside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navside ul li a {
+            display: block;
+            padding: 10px 0;
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .navside ul li a:hover {
+            background: #ddd;
+        }
+
+        main#content {
+            flex: 1;
+            padding: 20px;
+            background: #f8f8f8;
+            overflow-y: auto;
+        }
+
+        footer {
+            background-color: pink;
+            padding: 5px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>SDIHS</h2>
+    <h3 style="font-size:18px;">Santo Domingo Integrated High School</h3>
+</header>
+
+<ul class="nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">First Quarter</a></li>
+    <li><a href="#">Second Quarter</a></li>
+    <li><a href="#">About</a></li>
+</ul>
+
+<div class="container">
+    <section class="navside">
+        <ul>
+            <li><a onclick="loadContent('School Profile')">School Profile</a></li>
+            <li><a onclick="loadContent('SHS')">SHS</a></li>
+            <li><a onclick="loadContent('JHS')">JHS</a></li>
+        </ul>
+    </section>
+
+    <main id="content">
+        <h2>Welcome!</h2>
+        <p>Select a section from the left.</p>
+    </main>
+</div>
+
+<footer>
+    <p>Marcus Ovejera| 09926143602</p>
+</footer>
+
+<script>
+function loadContent(section) {
+    const content = document.getElementById('content');
+
+    if (section === 'School Profile') {
+        content.innerHTML = `
+            <h2>Mission</h2>
+            <p>Magbigay ng isang lipunan na may pagkakapantay-pantay, katarungan, at pagkakaisa...</p>
+        `;
+    }
+
+    if (section === 'SHS') {
+        content.innerHTML = `
+            <h2>SHS</h2>
+            <h3>Women</h3>
+            <p>Ofelia Franco</p>
+            <p>Marineth Pulido</p>
+            <p>Joyce Caranay</p>
+
+            <h3>Men</h3>
+            <p>Joseph Trajano</p>
+        `;
+    }
+
+    if (section === 'JHS') {
+        content.innerHTML = `
+            <h2>JHS</h2>
+            <p>Junior High School Information goes here.</p>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
